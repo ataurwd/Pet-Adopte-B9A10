@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- custom style -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                btnBg: '#0E7A81',
+                iconColor: '#131313B3',
+              },
+              fontFamily:{
+                customFont: "Lato",
+              }
+            }
+          }
+        }
+      </script>
+      <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .active{
+            background: rgba(14, 122, 129, 0.1);
+        }
+      </style>
+</head>
+<body class="font-customFont">
+    <header class="mx-2 lg:mx-20 mt-2 lg:mt-8">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16" />
+                  </svg>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li><a>Home</a></li>
+                  <li>
+                    <a>Shop</a>
+                  </li>
+                  <li><a>Contact</a></li>
+                </ul>
+              </div>
+              <div class="flex items-center gap-3">
+                <img src="./images/logo.webp" alt="">
+                <a class=" text-2xl font-bold">Unity</a>
+              </div> 
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a>Home</a></li>
+                <li>
+                  <a>Shop</a>
+                </li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end ">
+                <div class="w-10 h-10 border rounded-full flex justify-center items-center">
+                    <i class="fa-solid fa-user"></i>            
+                </div>
+            </div>
+        </div>
+
+        <section class="text-center space-y-3 mt-3 lg:mt-14">
+            <h1 class="text-gray-400 font-semibold">Bringing Families Together ❤️‍🔥</h1>
+            <h1 class="w-1/2 mx-auto text-xl lg:text-5xl font-bold">Your Path to Adoption Starts Here</h1>
+            <p class="lg:w-1/2 mx-auto md:w-[70%]"> "Adopt Your Best Friend" encourages individuals to find a loyal and loving companion through pet adoption. It highlights the emotional connection and lifelong bond that comes with adopting a pet,</p>
+            <a href="#pet-category"  class="btn bg-[#0E7A81] text-white">View More</a>
+            <img class="w-[60%] mx-auto" src="./images/pet.webp" alt="">
+        </section>
+</header>
+    
+<!-- all pet category -->
+     <section class="">
+        <div class="text-center m-2 space-y-2">
+            <h1 class="text-2xl font-bold lg:text-4xl">Adopt  Your  Best Friend</h1>
+            <p class="w-full lg:w-1/3 mx-auto md:w-[70%]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+        <div  id="pet-category" class="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-1 items-center w-[80%] mx-auto mt-5 lg:mt-14 gap-4">
+            <!-- pet category -->
+        </div>
+     </section>
+     <!-- show all pets -->
+      <div class="mx-3 lg:mx-[85px] my-4 lg:my-10 lg:flex lg:justify-between lg:items-center text-center space-y-3">
+        <h1 class="text-xl font-bold">Best Deal For you</h1>
+        <button class="btn bg-btnBg text-white" id="sort-by-price">Sort by Price</button>
+      </div>
+            <!-- spinner -->
+            <div id="loding" class="hidden text-center">
+                <span class="loading loading-spinner text-primary"></span>
+                <span class="loading loading-spinner text-secondary"></span>
+                <span class="loading loading-spinner text-accent"></span>
+                <span class="loading loading-spinner text-neutral"></span>
+                <span class="loading loading-spinner text-info"></span>
+                <span class="loading loading-spinner text-success"></span>
+                <span class="loading loading-spinner text-warning"></span>
+                <span class="loading loading-spinner text-error"></span>
+            </div>
+      <section class="grid grid-cols-1 lg:grid-cols-4 mx-3 lg:mx-20 my-5 lg:my-14 lg:gap-4 *:rounded-xl md:grid-cols-1">
+        <!-- single per information -->
+         
+        <div id="show-all-pets" class="
+        grid lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 col-span-3 min-[1024px]:">
+            
+        </div>
+        <div class="border" >
+            <div id="show-images" class="m-2 grid grid-cols-2 gap-2">
+
+            </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- all hide item -->
+
+       <!-- modal -->
+    <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+        <div id="modal-content">
+            <!-- modal content here -->
+        </div>
+        <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn w-full bg-[#0E7A8133] text-[#0E7A81]">Close</button>
+        </form>
+        </div>
+    </div>
+    </dialog>
+    <dialog id="my_modal_3" class="modal">
+    <div class="modal-box grid place-items-center space-y-4" id="addop-modal">
+        <!-- adopt btn modal -->
+    </div>
+    </dialog>
+    <div class="space-x-4 mx-10 my-10">
+        
+       
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-black px-4 lg:px-20 md:px-5">
+      <div class="container mx-auto py-[50px] lg:py-[100px] flex flex-col md:flex-row md:justify-between text-white">
+          <div class="mb-8 lg:mb-0 lg:w-1/3 md:w-[40%]">
+              <div class="flex gap-2 items-center py-2">
+                  <img src="./images/logo.webp" alt="Logo" class="w-10 lg:w-12">
+                  <span class="text-xl lg:text-3xl font-semibold">Unity</span>
+              </div>
+              <p class="text-gray-400 text-sm lg:text-base">Location: av. Washington 165, NY CA 54003 <br>
+                  Phone: +31 85 964 47 25 <br>
+                  Email: info@yourdomain.com <br>
+                  Openings hours: 9.00 AM - 5.00 PM</p>
+              <div class="text-2xl lg:text-4xl space-x-4 mt-6">
+                  <i class="fa-brands fa-facebook" style="color: #1397fb;"></i>
+                  <i class="fa-brands fa-x-twitter"></i>
+                  <i class="fa-brands fa-youtube" style="color: #e71818;"></i>
+                  <i class="fa-brands fa-square-instagram" style="color: #f03838;"></i>
+              </div>
+          </div>
+          <div class="mb-8 lg:mb-0 lg:w-1/3 md:w-1/2 md:ml-20">
+              <h5 class="text-lg font-semibold mb-4">Useful Links</h5>
+              <ul class="space-y-2 text-gray-400 text-sm lg:text-base">
+                  <li>Home</li>
+                  <li>About Us</li>
+                  <li>Animals</li>
+                  <li>Foundation</li>
+                  <li>Contact</li>
+              </ul>
+          </div>
+          <div class="lg:w-1/3 md:w-1/2">
+              <h5 class="text-lg font-semibold mb-4">Drop a Message</h5>
+              <div class="mb-4">
+                  <input type="text" placeholder="Enter your Email"
+                      class="input input-bordered w-full bg-slate-700 text-white py-2 px-3 rounded-lg text-sm lg:text-base" />
+              </div>
+              <button class="btn btn-success w-full py-2 rounded-lg">Subscribe</button>
+          </div>
+      </div>
+  </footer>
+  
+    
+     <script src="main.js"></script>
+</body>
+</html>
